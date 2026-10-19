@@ -49,9 +49,9 @@
 .set--rechts .set__extra--een .beeld { grid-column: 3 / span 3; order: 0; }
 
 /* hover: rustig inzoomen */
-.set .beeld img, .zuilen .beeld img, .licht__beeld img, .set .beeld video, .licht__beeld video { transition: transform 1.2s var(--ease); }
+.set .beeld img, .zuilen .beeld img, .licht__beeld img { transition: transform 1.2s var(--ease); }
 @media (hover: hover) and (pointer: fine) {
-  .set .beeld:hover img, .zuilen .beeld:hover img, .licht__beeld:hover img, .set .beeld:hover video, .licht__beeld:hover video { transform: scale(1.03); }
+  .set .beeld:hover img, .zuilen .beeld:hover img, .licht__beeld:hover img { transform: scale(1.03); }
 }
 
 /* ---------- extra: mediterrane zuilen-setup ---------- */

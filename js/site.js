@@ -704,37 +704,6 @@
   });
 
   /* ------------------------------------------------------------
-     Losse films in de pagina (19-10): video[data-film] met data-src (en eventueel data-src-mobiel)
-     en data-poster (en eventueel data-poster-mobiel). De poster staat meteen; de film laadt pas als hij
-     in de buurt komt, speelt in beeld en pauzeert erbuiten. Bij "minder beweging" blijft alleen de poster.
-     ------------------------------------------------------------ */
-  var films = $$('video[data-film]');
-  if (films.length) (function () {
-    function bron(v, naam) { var m = v.dataset[naam + 'Mobiel']; return (mqMobiel.matches && m) ? m : v.dataset[naam]; }
-    function zetPoster(v) { var p = bron(v, 'poster'); if (p && v.getAttribute('poster') !== p) v.setAttribute('poster', p); }
-    function zetBron(v) { var s = bron(v, 'src'); if (s && v.getAttribute('src') !== s) v.setAttribute('src', s); }
-    function speel(v) {
-      if (rust() || !v.dataset.inBeeld) return;
-      zetBron(v);
-      var p = v.play(); if (p && p.catch) p.catch(function () {});
-    }
-    films.forEach(zetPoster);
-    if ('IntersectionObserver' in window) {
-      var filmIO = new IntersectionObserver(function (es) {
-        es.forEach(function (e) {
-          var v = e.target;
-          if (e.isIntersecting) { v.dataset.inBeeld = '1'; speel(v); }
-          else { delete v.dataset.inBeeld; v.pause(); }
-        });
-      }, { rootMargin: '160px 0px', threshold: 0.01 });
-      films.forEach(function (v) { filmIO.observe(v); });
-    } else films.forEach(function (v) { v.dataset.inBeeld = '1'; speel(v); });
-    luister(mqMobiel, function () {
-      films.forEach(function (v) { zetPoster(v); if (v.getAttribute('src')) { var liep = !v.paused; zetBron(v); if (liep) speel(v); } });
-    });
-  })();
-
-  /* ------------------------------------------------------------
      Directe links met een #anker (gedeeld of van buiten): na het laden van fonts en beelden
      nog één keer precies op het doel zetten; pas daarna vloeiend scrollen aanzetten.
      ------------------------------------------------------------ */

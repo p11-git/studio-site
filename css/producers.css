@@ -40,7 +40,7 @@
 .stroom { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--goot); row-gap: 48px; align-items: start; }
 .stroom__beeld { grid-column: 1 / span 5; }
 .stroom__beeld .beeld { aspect-ratio: 4 / 5; }
-.stroom__beeld img, .stroom__beeld video { object-position: 50% 30%; }
+.stroom__beeld img { object-position: 50% 30%; }
 .stroom__tekst { grid-column: 7 / span 6; }
 .spec { padding: 24px 0 8px; border-top: 1px solid var(--lijn); }
 .spec + .spec { margin-top: 16px; }

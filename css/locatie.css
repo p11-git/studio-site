@@ -25,9 +25,8 @@
 .ruimte__paar { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--goot); align-items: end; margin-top: clamp(56px, 6vw, 96px); }
 .ruimte__groot { grid-column: 1 / span 8; aspect-ratio: 3 / 2; }
 .ruimte__groot img { object-position: 24% 50%; }
-.ruimte__groot video { object-position: 50% 50%; }
 .ruimte__klein { grid-column: 9 / span 4; aspect-ratio: 4 / 5; }
-.ruimte__klein img, .ruimte__klein video { object-position: 50% 30%; }
+.ruimte__klein img { object-position: 50% 30%; }
 
 /* visagie en productie: staande film naast de tekst */
 .ruimte__rij { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--goot); align-items: center; }
@@ -72,7 +71,7 @@
   .locatieplan .voordeel__beeld { width: min(240px, 100%); }
   .ruimte__groot, .ruimte__klein { grid-column: 1 / -1; }
   .ruimte__groot { aspect-ratio: 4 / 5; }
-  .ruimte__groot img, .ruimte__groot video { object-position: 50% 50%; }
+  .ruimte__groot img { object-position: 50% 50%; }
   .ruimte__klein { width: 62%; margin: 16px 0 0 auto; }
   .ruimte__media, .ruimte__rij--om .ruimte__media { grid-column: 1 / -1; width: 78%; margin-bottom: 40px; }
   .ruimte__inhoud, .ruimte__rij--om .ruimte__inhoud { grid-column: 1 / -1; }

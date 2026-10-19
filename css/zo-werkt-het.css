@@ -6,7 +6,6 @@
 .klaarstaan__boven { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--goot); align-items: center; }
 .klaarstaan__beeld { grid-column: 1 / span 7; aspect-ratio: 3 / 2; }
 .klaarstaan__beeld img { object-position: 24% 50%; }
-.klaarstaan__beeld video { object-position: 50% 50%; }
 .klaarstaan__tekst { grid-column: 9 / span 4; }
 .klaarstaan__tekst p { color: var(--inkt-zacht); }
 .klaarstaan__regel { font: 500 var(--s-klein)/1.25 var(--serif); color: var(--inkt) !important; margin: 28px 0 0; text-wrap: balance; }
@@ -31,8 +30,6 @@
 .verschil__tabel td { vertical-align: top; width: 50%; padding: 18px 0; border-top: 1px solid var(--lijn-licht); color: var(--kalk-60); }
 .verschil__tabel td + td, .verschil__tabel th + th { padding-left: var(--goot); }
 .verschil__tabel td + td { color: var(--kalk); }
-/* de ombouwfilm onder de kop: wij bouwen, jij schiet door */
-.verschil__beeld { grid-column: 1 / span 4; margin-top: 36px; aspect-ratio: 4 / 5; }
 
 /* ---------- #dag: tijdlijn ---------- */
 .werkdag__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--goot); align-items: start; }
@@ -70,7 +67,6 @@
 .licht__beeld { grid-column: 8 / span 4; }
 .licht__beeld .beeld { aspect-ratio: 4 / 5; }
 .licht__beeld img { object-position: 50% 8%; }
-.licht__beeld video { object-position: 50% 50%; }
 
 /* ---------- #host ---------- */
 .host__intro { max-width: 30em; color: var(--inkt-zacht); }
@@ -105,7 +101,6 @@
   .klaarstaan__tekst { margin-top: 40px; max-width: 34em; }
   .klaarstaan__tweede { grid-column: 1 / span 7; margin-top: 56px; }
   .verschil__tabel { margin-top: 24px; }
-  .verschil__beeld { grid-column: 1 / -1; max-width: 320px; margin-top: 32px; }
   .werkdag__plak { position: static; margin-bottom: 56px; }
   .licht__beeld { grid-column: 1 / span 6; margin-top: 48px; }
   .aanvraag__kop p { margin-top: 20px; }

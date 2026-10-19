@@ -25,7 +25,7 @@
 .blok__kop .sectie__kop { margin: 0; }
 .blok__intro { margin: 20px 0 0; max-width: 26em; font-size: 18px; color: var(--inkt-zacht); }
 .blok__beeld { margin-top: clamp(32px, 4vw, 48px); max-width: 360px; }
-.blok__beeld img, .blok__beeld video { object-position: 50% 30%; }
+.blok__beeld img { object-position: 50% 30%; }
 .blok > :last-child { grid-column: 7 / span 6; }
 
 /* ---------- 1 · drie pakketten (drie kolommen, dunne lijnen, geen kaders) ---------- */

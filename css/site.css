@@ -361,8 +361,7 @@ html.menu-open, html.menu-open body { overflow: hidden; }
   align-items: center;
 }
 .halfbleed__beeld { aspect-ratio: 3 / 2; overflow: hidden; background: var(--linnen); }
-.halfbleed__beeld img, .halfbleed__beeld video { width: 100%; height: 100%; object-fit: cover; object-position: 24% 50%; }
-.halfbleed__beeld video { object-position: 50% 50%; }
+.halfbleed__beeld img { width: 100%; height: 100%; object-fit: cover; object-position: 24% 50%; }
 .halfbleed__tekst { padding-left: var(--goot); padding-right: max(var(--rand), (100vw - var(--max)) / 2); }
 .halfbleed__tekst h2 { margin-bottom: 28px; }
 .halfbleed__tekst p { max-width: 34em; }
@@ -443,7 +442,7 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 .set__beeld { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--linnen); }
 /* olijfgroen en linnen in hun eigen verhouding (2:3): zo blijven de schoenen in beeld */
 .set--olijf .set__beeld, .set--linnen .set__beeld { aspect-ratio: 2 / 3; }
-.set__beeld img, .set__beeld video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .6s var(--ease), transform 1.2s var(--ease); }
+.set__beeld img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .6s var(--ease), transform 1.2s var(--ease); }
 .set__tweede { opacity: 0; }
 .set__stippen { display: none; }
 @media (hover: hover) and (pointer: fine) {
@@ -455,7 +454,7 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 @media (hover: none) {
   .set__beeld { display: flex; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .set__beeld::-webkit-scrollbar { display: none; }
-  .set__beeld img, .set__beeld video { position: static; flex: 0 0 100%; scroll-snap-align: start; }
+  .set__beeld img { position: static; flex: 0 0 100%; scroll-snap-align: start; }
   .set__tweede { opacity: 1; }
   .set__stippen { display: flex; gap: 8px; margin-top: 12px; }
   .set__stippen span { width: 6px; height: 6px; border-radius: 50%; background: var(--lijn); transition: background-color .3s; }
@@ -558,7 +557,7 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 .bouwlabel span { color: var(--inkt-zacht); font-variant-numeric: tabular-nums; }
 .moment__beeld { margin-top: 22px; width: 260px; aspect-ratio: 4 / 5; overflow: hidden; background: var(--linnen); }
 .moment__beeld--klein { width: 220px; }
-.moment__beeld img, .moment__beeld video { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+.moment__beeld img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
 
 /* ---------- 7 · prijzen ---------- */
 .prijzen { background: var(--stuc-licht); padding: 160px 0 144px; }
