@@ -1,0 +1,82 @@
+/* de studio · locatie.html
+   Bouwt op site.css (tokens + de plattegrond-component) en pagina.css (paginakop, sectie, tweekol, feiten, punten, beeld, slotactie).
+   De plattegrond-markup is gelijk aan die op de homepage; hier alleen de maat en de indeling. */
+
+/* ---------- plattegrond, groot ---------- */
+.locatieplan { padding: 0 0 clamp(72px, 9vw, 144px); }
+.locatieplan .klaar { margin-top: 0; }
+.locatieplan .klaar__kop { font-size: var(--s-middel); margin-bottom: 40px; }
+/* in de smalle lijst naast de grote plattegrond: tekst en beeld onder elkaar */
+.locatieplan .voordeel__binnen { grid-template-columns: minmax(0, 1fr); }
+.locatieplan .voordeel__beeld { width: 216px; }
+@media (min-width: 1200px) {
+  .locatieplan .klaar__plan { grid-column: 1 / span 8; }
+  .locatieplan .voordelen { grid-column: 9 / span 4; }
+}
+
+/* ---------- ruimtes ---------- */
+.ruimte__kop span { display: block; }
+.ruimte__tekst { max-width: 34em; color: var(--inkt-zacht); }
+.ruimte__noot { font-size: 15px; color: var(--inkt-zacht); margin: 24px 0 0; }
+.ruimte__feiten { align-self: end; }
+.ruimte__feiten a { text-decoration-thickness: 1px; text-underline-offset: 4px; }
+
+/* hal: paar van ongelijke formaten, onderkant gelijk */
+.ruimte__paar { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--goot); align-items: end; margin-top: clamp(56px, 6vw, 96px); }
+.ruimte__groot { grid-column: 1 / span 8; aspect-ratio: 3 / 2; }
+.ruimte__groot img { object-position: 24% 50%; }
+.ruimte__groot video { object-position: 50% 50%; }
+.ruimte__klein { grid-column: 9 / span 4; aspect-ratio: 4 / 5; }
+.ruimte__klein img, .ruimte__klein video { object-position: 50% 30%; }
+
+/* visagie en productie: staande film naast de tekst */
+.ruimte__rij { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--goot); align-items: center; }
+.ruimte__media { grid-column: 2 / span 4; }
+.ruimte__inhoud { grid-column: 7 / span 5; }
+.ruimte__rij--om .ruimte__media { grid-column: 8 / span 4; order: 2; }
+.ruimte__rij--om .ruimte__inhoud { grid-column: 2 / span 5; order: 1; }
+.ruimte__video { position: relative; aspect-ratio: 2 / 3; }
+.ruimte__film { object-position: 50% 30%; }
+.ruimte__film--onder { object-position: 50% 100%; }
+.ruimte__inhoud .punten { margin-top: 24px; color: var(--inkt-zacht); gap: 12px; }
+
+/* ingang (donker vlak) */
+.ruimte--ingang .ruimte__tekst { color: var(--kalk-80); }
+.ruimte--ingang .feiten dt { color: var(--kalk); }
+.ruimte--ingang .feiten dd { color: var(--kalk-80); }
+
+/* route */
+.route__adres { font: 500 var(--s-middel)/1.2 var(--serif); color: var(--inkt); margin: 8px 0 24px; }
+.route__tekst { max-width: 30em; color: var(--inkt-zacht); }
+.route__kop { font-size: var(--s-klein); margin-bottom: 20px; }
+
+/* =========================================================
+   Tablet (≤1023)
+   ========================================================= */
+@media (max-width: 1023px) {
+  .locatieplan .voordeel__binnen { grid-template-columns: minmax(0, 1fr) 216px; }
+  .locatieplan .voordeel__binnen--tekst { grid-template-columns: minmax(0, 1fr); }
+  .locatieplan .voordeel__beeld { width: auto; }
+  .ruimte__feiten { margin-top: 8px; }
+  .ruimte__groot { grid-column: 1 / span 8; }
+  .ruimte__klein { grid-column: 9 / span 4; }
+  .ruimte__media, .ruimte__rij--om .ruimte__media { grid-column: 1 / span 5; order: 0; }
+  .ruimte__inhoud, .ruimte__rij--om .ruimte__inhoud { grid-column: 7 / span 6; order: 0; }
+}
+
+/* =========================================================
+   Mobiel (≤699)
+   ========================================================= */
+@media (max-width: 699px) {
+  .locatieplan .voordeel__binnen { grid-template-columns: 1fr; }
+  .locatieplan .voordeel__beeld { width: min(240px, 100%); }
+  .ruimte__groot, .ruimte__klein { grid-column: 1 / -1; }
+  .ruimte__groot { aspect-ratio: 4 / 5; }
+  .ruimte__groot img, .ruimte__groot video { object-position: 50% 50%; }
+  .ruimte__klein { width: 62%; margin: 16px 0 0 auto; }
+  .ruimte__media, .ruimte__rij--om .ruimte__media { grid-column: 1 / -1; width: 78%; margin-bottom: 40px; }
+  .ruimte__inhoud, .ruimte__rij--om .ruimte__inhoud { grid-column: 1 / -1; }
+  .ruimte__rij--om .ruimte__media { margin-left: auto; }
+  .slotactie .actie { align-items: stretch; width: 100%; }
+  .slotactie .knop { width: 100%; }
+}

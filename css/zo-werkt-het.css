@@ -1,0 +1,149 @@
+/* de studio · zo-werkt-het.html
+   Bouwt op site.css (tokens) en pagina.css (paginakop, sectie, tweekol, feiten, punten, beeld, slotactie). */
+
+/* ---------- #klaar: wat er klaarstaat ---------- */
+.klaarstaan { padding-top: 0; }
+.klaarstaan__boven { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--goot); align-items: center; }
+.klaarstaan__beeld { grid-column: 1 / span 7; aspect-ratio: 3 / 2; }
+.klaarstaan__beeld img { object-position: 24% 50%; }
+.klaarstaan__beeld video { object-position: 50% 50%; }
+.klaarstaan__tekst { grid-column: 9 / span 4; }
+.klaarstaan__tekst p { color: var(--inkt-zacht); }
+.klaarstaan__regel { font: 500 var(--s-klein)/1.25 var(--serif); color: var(--inkt) !important; margin: 28px 0 0; text-wrap: balance; }
+
+.klaarstaan__onder { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--goot); align-items: end; margin-top: clamp(72px, 8vw, 128px); }
+.klaarstaan__lijst { grid-column: 1 / span 6; }
+.klaarstaan__subkop { font-size: var(--s-middel); margin-bottom: 28px; }
+.klaarlijst { border-bottom: 1px solid var(--lijn); }
+.klaarlijst li { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--goot); padding: 18px 0; border-top: 1px solid var(--lijn); }
+.klaarlijst h4 { font: 500 17px/1.5 var(--sans); letter-spacing: 0; color: var(--inkt); }
+.klaarlijst p { margin: 0; color: var(--inkt-zacht); }
+.klaarstaan__links { display: flex; flex-wrap: wrap; gap: 8px 36px; margin-top: 28px; }
+.klaarstaan__tweede { grid-column: 8 / span 5; aspect-ratio: 4 / 5; }
+.klaarstaan__tweede img { object-position: 58% 50%; }
+
+/* ---------- elders tegenover hier (donker) ---------- */
+.verschil__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--goot); align-items: start; }
+.verschil__kop { grid-column: 1 / span 5; }
+.verschil__tabel { grid-column: 7 / span 6; width: 100%; border-collapse: collapse; }
+.verschil__tabel caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.verschil__tabel th { text-align: left; font: 500 12px/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--kalk-60); padding: 0 0 14px; }
+.verschil__tabel td { vertical-align: top; width: 50%; padding: 18px 0; border-top: 1px solid var(--lijn-licht); color: var(--kalk-60); }
+.verschil__tabel td + td, .verschil__tabel th + th { padding-left: var(--goot); }
+.verschil__tabel td + td { color: var(--kalk); }
+/* de ombouwfilm onder de kop: wij bouwen, jij schiet door */
+.verschil__beeld { grid-column: 1 / span 4; margin-top: 36px; aspect-ratio: 4 / 5; }
+
+/* ---------- #dag: tijdlijn ---------- */
+.werkdag__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--goot); align-items: start; }
+.werkdag__links { grid-column: 1 / span 5; align-self: stretch; }
+.werkdag__plak { position: sticky; top: 112px; }
+.werkdag__plak p { max-width: 30em; color: var(--inkt-zacht); }
+.werkdag__noot { font-size: 15px; margin-top: 24px; }
+.werkdag__rechts { grid-column: 7 / span 6; padding-top: 12px; }
+
+.dagplan { position: relative; }
+.dagplan__moment { position: relative; display: grid; grid-template-columns: 64px minmax(0, 1fr); column-gap: 52px; padding-bottom: 44px; }
+.dagplan__moment::before { content: ''; position: absolute; left: 88px; top: 14px; bottom: -14px; width: 1px; background: var(--lijn); }
+.dagplan__moment:last-child { padding-bottom: 0; }
+.dagplan__moment:last-child::before { display: none; }
+.dagplan__moment::after { content: ''; position: absolute; left: 84px; top: 10px; width: 9px; height: 9px; border-radius: 50%; background: var(--inkt); }
+/* bouwvak (wij bouwen) en afbouwtijd (jij pakt in): een dikkere lijn tot het volgende moment */
+.dagplan__moment--bouw::before { left: 86px; width: 5px; background: var(--stuc); }
+.dagplan__moment--afbouw::before { left: 86px; width: 5px; background: repeating-linear-gradient(to bottom, var(--stuc) 0 6px, transparent 6px 11px); }
+.dagplan__tijd { font: 500 17px/1.6 var(--sans); font-variant-numeric: tabular-nums; letter-spacing: .04em; color: var(--inkt); }
+.dagplan__tekst p { margin: 0; }
+.dagplan__tekst a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; text-decoration-color: rgba(43, 29, 20, .35); }
+.dagplan__tekst a:hover { text-decoration-color: currentColor; }
+.dagplan__label { margin-top: 10px !important; font-size: 14px; line-height: 1.4; color: var(--terra); display: inline-flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+.dagplan__label span { color: var(--inkt-zacht); font-variant-numeric: tabular-nums; }
+.dagplan__beeld { margin-top: 22px; width: 260px; }
+.dagplan__beeld img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 40%; background: var(--linnen); }
+.werkdag__extra { margin: 40px 0 0; padding-left: 116px; font: 500 var(--s-klein)/1.3 var(--serif); color: var(--inkt); max-width: calc(116px + 20em); text-wrap: balance; }
+
+/* ---------- #licht ---------- */
+.licht__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--goot); align-items: center; }
+.licht__tekst { grid-column: 1 / span 6; }
+.licht__tekst > p { max-width: 34em; color: var(--inkt-zacht); }
+.licht__lijst { margin: 28px 0; color: var(--inkt-zacht); gap: 14px; }
+.licht__noot { font-size: 15px; }
+.licht__beeld { grid-column: 8 / span 4; }
+.licht__beeld .beeld { aspect-ratio: 4 / 5; }
+.licht__beeld img { object-position: 50% 8%; }
+.licht__beeld video { object-position: 50% 50%; }
+
+/* ---------- #host ---------- */
+.host__intro { max-width: 30em; color: var(--inkt-zacht); }
+.host__kolommen { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--goot); row-gap: 40px; padding-top: 10px; }
+.host__kop { font-size: var(--s-klein); margin-bottom: 20px; }
+.host .punten { gap: 12px; color: var(--inkt-zacht); }
+.host .punten li::before { background: var(--terra); }
+.host__noot { font-size: 15px; color: var(--inkt-zacht); margin: 24px 0 0; }
+
+/* ---------- #afbouw ---------- */
+.afbouw { padding-bottom: 0; }
+.afbouw__intro { max-width: 30em; color: var(--inkt-zacht); }
+.afbouw__kop { font-size: var(--s-klein); margin-bottom: 20px; padding-top: 10px; }
+
+/* ---------- #aanvraag: vijf stappen ---------- */
+.aanvraag__kop { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--goot); align-items: end; }
+.aanvraag__kop h2 { grid-column: 1 / span 6; margin: 0; }
+.aanvraag__kop p { grid-column: 8 / span 5; margin: 0; padding-bottom: 6px; }
+.stappen { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: var(--goot); margin-top: clamp(48px, 5vw, 72px); }
+.stap { border-top: 1px solid var(--inkt); padding-top: 20px; }
+.stap__nr { display: block; font: 500 56px/1 var(--serif); color: var(--terra); margin-bottom: 20px; }
+.stap__kop { font-size: var(--s-klein); line-height: 1.15; margin-bottom: 10px; }
+.stap p { margin: 0; color: var(--inkt-zacht); font-size: 16px; }
+
+/* =========================================================
+   Tablet (≤1023)
+   ========================================================= */
+@media (max-width: 1023px) {
+  .klaarstaan__beeld, .klaarstaan__tekst, .klaarstaan__lijst, .klaarstaan__tweede,
+  .verschil__kop, .verschil__tabel, .werkdag__links, .werkdag__rechts,
+  .licht__tekst, .aanvraag__kop h2, .aanvraag__kop p { grid-column: 1 / -1; }
+  .klaarstaan__tekst { margin-top: 40px; max-width: 34em; }
+  .klaarstaan__tweede { grid-column: 1 / span 7; margin-top: 56px; }
+  .verschil__tabel { margin-top: 24px; }
+  .verschil__beeld { grid-column: 1 / -1; max-width: 320px; margin-top: 32px; }
+  .werkdag__plak { position: static; margin-bottom: 56px; }
+  .licht__beeld { grid-column: 1 / span 6; margin-top: 48px; }
+  .aanvraag__kop p { margin-top: 20px; }
+  .stappen { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 40px; }
+}
+
+/* =========================================================
+   Mobiel (≤699)
+   ========================================================= */
+@media (max-width: 699px) {
+  .klaarstaan__beeld { aspect-ratio: 4 / 5; }
+  .klaarstaan__beeld img { object-position: 50% 50%; }
+  .klaarlijst li { grid-template-columns: 1fr; row-gap: 4px; }
+  .klaarstaan__links { flex-direction: column; gap: 0; }
+  .klaarstaan__tweede { grid-column: 1 / -1; margin-right: 12%; }
+
+  .verschil__tabel thead { display: none; }
+  .verschil__tabel, .verschil__tabel tbody, .verschil__tabel tr, .verschil__tabel td { display: block; width: 100%; }
+  .verschil__tabel tr { padding: 18px 0; border-top: 1px solid var(--lijn-licht); }
+  .verschil__tabel td { border: 0; padding: 0; }
+  .verschil__tabel td + td { padding-left: 0; margin-top: 8px; }
+  .verschil__tabel td::before { display: block; font: 500 11px/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--kalk-60); margin-bottom: 4px; }
+  .verschil__tabel td:first-child::before { content: 'Elders'; }
+  .verschil__tabel td + td::before { content: 'Bij ons'; }
+
+  .dagplan__moment { grid-template-columns: 52px minmax(0, 1fr); column-gap: 36px; }
+  .dagplan__moment::before { left: 68px; }
+  .dagplan__moment::after { left: 64px; }
+  .dagplan__moment--bouw::before, .dagplan__moment--afbouw::before { left: 66px; }
+  .dagplan__beeld { width: min(240px, 100%); }
+  .werkdag__extra { padding-left: 0; }
+
+  .licht__beeld { grid-column: 1 / -1; margin-right: 16%; }
+  .host__kolommen { grid-template-columns: 1fr; }
+  .stappen { grid-template-columns: 1fr; row-gap: 0; }
+  .stap { display: grid; grid-template-columns: 48px minmax(0, 1fr); column-gap: 12px; padding: 20px 0 24px; border-top-color: var(--lijn); }
+  .stap:first-child { border-top-color: var(--inkt); }
+  .stap__nr { grid-row: span 2; font-size: 40px; margin: 0; }
+  .slotactie .actie { align-items: stretch; width: 100%; }
+  .slotactie .knop { width: 100%; }
+}

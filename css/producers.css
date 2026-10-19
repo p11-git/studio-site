@@ -1,0 +1,163 @@
+/* de studio · producers.html
+   Bouwt op site.css (tokens) en pagina.css (paginakop, sectie, tweekol, feiten, slotactie). */
+
+/* ---------- gedeeld op deze pagina ---------- */
+.nav__item[aria-current="page"]::after { transform: scaleX(1); }
+.mm-kop[aria-current="page"] { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 8px; }
+
+.sectie--lijn { position: relative; }
+.sectie--lijn::before { content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: min(var(--max), 100% - 2 * var(--rand)); border-top: 1px solid var(--lijn); }
+
+.rijkop { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--goot); align-items: end; margin-bottom: clamp(48px, 5.5vw, 80px); }
+.rijkop .sectie__kop { grid-column: 1 / span 6; margin: 0; }
+.rijkop > p { grid-column: 8 / span 5; margin: 0; color: var(--inkt-zacht); }
+.sectie--donker .rijkop > p { color: var(--kalk-80); }
+
+.paginakop__intro p { margin: 0; }
+.sectie--donker .feiten dt { color: var(--kalk); }
+.sectie--donker .feiten dd { color: var(--kalk-80); }
+
+/* ---------- 1 · productieblad ---------- */
+.prodblad { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--goot); row-gap: 48px; align-items: start; }
+.prodblad__links { grid-column: 1 / span 4; position: sticky; top: calc(var(--kop-h) + 32px); }
+.prodblad__intro { margin: 0; font-size: 18px; color: var(--inkt-zacht); }
+.prodblad__feiten { grid-column: 6 / span 7; }
+.prodblad__feiten > div { grid-template-columns: minmax(140px, 1fr) 2.4fr; }
+
+.opdeze { margin-top: clamp(32px, 4vw, 56px); }
+.opdeze__kop { margin: 0 0 10px; font: 500 12px/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--inkt-zacht); }
+.opdeze ul { border-top: 1px solid var(--lijn); }
+.opdeze a {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  min-height: 44px; padding: 8px 0; border-bottom: 1px solid var(--lijn);
+  font-size: 16px; text-decoration: none; color: var(--inkt);
+}
+.opdeze a span { color: var(--inkt-zacht); transition: transform .6s var(--ease); }
+.opdeze a:hover { color: var(--terra-hover); }
+.opdeze a:hover span { transform: translateX(4px); color: var(--terra-hover); }
+
+/* ---------- 2 · stroom, licht en internet ---------- */
+.stroom { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--goot); row-gap: 48px; align-items: start; }
+.stroom__beeld { grid-column: 1 / span 5; }
+.stroom__beeld .beeld { aspect-ratio: 4 / 5; }
+.stroom__beeld img, .stroom__beeld video { object-position: 50% 30%; }
+.stroom__tekst { grid-column: 7 / span 6; }
+.spec { padding: 24px 0 8px; border-top: 1px solid var(--lijn); }
+.spec + .spec { margin-top: 16px; }
+.spec__kop { font-size: var(--s-klein); margin-bottom: 12px; }
+.spec p { color: var(--inkt-zacht); max-width: 36em; }
+
+/* ---------- 3 · team en capaciteit ---------- */
+.team { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--goot); row-gap: 48px; align-items: start; }
+.team__tekst { grid-column: 1 / span 6; }
+.team__tekst .sectie__intro { margin: 0 0 36px; }
+.team__beeld { grid-column: 8 / span 5; }
+.team__beeld img { object-position: 50% 58%; }
+
+/* ---------- 4 · laden en parkeren · film en geluid ---------- */
+.duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.duo__blok { display: flex; flex-direction: column; padding: 4px clamp(24px, 3.5vw, 56px) 8px; }
+.duo__blok:first-child { padding-left: 0; }
+.duo__blok:last-child { padding-right: 0; }
+.duo__blok + .duo__blok { border-left: 1px solid var(--lijn); }
+.duo__kop { font-size: clamp(30px, 3vw, 44px); letter-spacing: -.015em; margin-bottom: 20px; }
+.duo__blok > p { color: var(--inkt-zacht); max-width: 32em; margin-bottom: 32px; }
+.duo__blok .feiten { margin-top: auto; }
+
+/* ---------- 5 · planning (donker vlak) ---------- */
+.stappen { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: var(--goot); counter-reset: none; }
+.stappen li { position: relative; padding-top: 28px; border-top: 1px solid var(--lijn-licht); }
+.stappen li::before { content: ""; position: absolute; top: -4px; left: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--stuc); }
+.stappen__nr { display: block; margin-bottom: 14px; font: 500 12px/1 var(--sans); letter-spacing: .14em; color: var(--kalk-60); }
+.stappen h3 { font-size: var(--s-klein); color: var(--kalk); margin-bottom: 10px; }
+.stappen p { margin: 0; font-size: 16px; line-height: 1.55; color: var(--kalk-80); max-width: 18em; }
+.planning__noot { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--goot); row-gap: 24px; align-items: start; margin-top: clamp(64px, 7vw, 112px); }
+.planning__kop { grid-column: 1 / span 4; font-size: var(--s-middel); color: var(--kalk); }
+.planning__feiten { grid-column: 6 / span 7; }
+
+/* ---------- 6 · vragen (details/summary) ---------- */
+.vragenblok { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--goot); align-items: start; }
+.vragenblok__links { grid-column: 1 / span 5; position: sticky; top: calc(var(--kop-h) + 32px); }
+.vragenblok__intro { margin: 0; max-width: 24em; color: var(--inkt-zacht); }
+.faq { grid-column: 7 / span 6; border-bottom: 1px solid var(--lijn); }
+.faq details { border-top: 1px solid var(--lijn); }
+.faq summary {
+  display: flex; justify-content: space-between; align-items: center; gap: 24px;
+  padding: 24px 0; cursor: pointer; list-style: none;
+  font: 500 var(--s-klein)/1.2 var(--serif); color: var(--inkt);
+  transition: color .3s;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::marker { content: ""; }
+.faq summary:hover { color: var(--terra-hover); }
+.faq details[open] > summary .plusmin::after { transform: rotate(0deg); }
+.faq__antwoord p { margin: -4px 0 30px; max-width: 36em; color: var(--inkt-zacht); }
+@supports (interpolate-size: allow-keywords) {
+  .faq { interpolate-size: allow-keywords; }
+  .faq details::details-content { block-size: 0; overflow: clip; transition: block-size .6s var(--ease), content-visibility .6s allow-discrete; }
+  .faq details[open]::details-content { block-size: auto; }
+}
+
+/* ---------- 7 · route ---------- */
+.route__adres { margin: 0 0 12px; font-size: 18px; color: var(--inkt-zacht); }
+.route__link { white-space: normal; }
+
+/* ---------- slot ---------- */
+.slotactie__tekst { grid-column: 1 / span 7; }
+.slotactie__tekst p { margin: 20px 0 0; max-width: 34em; color: var(--inkt-zacht); }
+
+/* =========================================================
+   Tablet
+   ========================================================= */
+@media (max-width: 1023px) {
+  .rijkop .sectie__kop, .rijkop > p { grid-column: 1 / -1; }
+  .rijkop > p { margin-top: 20px; max-width: 34em; }
+  .slotactie__tekst { grid-column: 1 / -1; }
+
+  .prodblad__links, .prodblad__feiten { grid-column: 1 / -1; }
+  .prodblad__links { position: static; }
+  .opdeze ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--goot); }
+
+  .stroom__beeld { grid-column: 1 / span 6; }
+  .stroom__tekst { grid-column: 1 / -1; order: -1; }
+
+  .team__tekst { grid-column: 1 / -1; }
+  .team__beeld { grid-column: 1 / span 6; }
+
+  .duo { grid-template-columns: 1fr; }
+  .duo__blok, .duo__blok:first-child, .duo__blok:last-child { padding: 40px 0; }
+  .duo__blok:first-child { padding-top: 0; }
+  .duo__blok:last-child { padding-bottom: 0; }
+  .duo__blok + .duo__blok { border-left: 0; border-top: 1px solid var(--lijn); }
+
+  .stappen { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 40px; }
+  .stappen p { max-width: 26em; }
+  .planning__kop, .planning__feiten { grid-column: 1 / -1; }
+
+  .vragenblok__links, .faq { grid-column: 1 / -1; }
+  .vragenblok__links { position: static; margin-bottom: 40px; }
+}
+
+/* =========================================================
+   Mobiel
+   ========================================================= */
+@media (max-width: 699px) {
+  .opdeze ul { grid-template-columns: 1fr; }
+  .stroom__beeld, .team__beeld { grid-column: 1 / -1; }
+
+  /* stappen onder elkaar, met een doorlopende lijn links */
+  .stappen { grid-template-columns: 1fr; row-gap: 0; }
+  .stappen li { padding: 0 0 32px 32px; border-top: 0; border-left: 1px solid var(--lijn-licht); margin-left: 3px; }
+  .stappen li:last-child { padding-bottom: 0; border-left-color: transparent; }
+  .stappen li::before { top: 2px; left: -4px; }
+  .stappen__nr { margin-bottom: 10px; }
+
+  .faq summary { padding: 20px 0; }
+
+  .slotactie .actie { align-self: stretch; align-items: stretch; width: 100%; }
+  .slotactie .knop { width: 100%; }
+}
+
+/* Plattegrond met maten op Voor producers (statisch) */
+.prod-plan { margin: 32px 0 0; max-width: 980px; }
+.prod-plan .plan { width: 100%; height: auto; }
