@@ -142,3 +142,15 @@
   .slotactie .actie { align-items: stretch; width: 100%; }
   .slotactie .knop { width: 100%; }
 }
+
+/* Video en foto's van 22-10: binnenkomst, donkere sectie, lichtvak, host, tweede beeld */
+.klaarstaan__beeld video { width: 100%; height: 100%; object-fit: cover; object-position: 24% 50%; display: block; }
+.licht__beeld .beeld video { width: 100%; height: 100%; object-fit: cover; object-position: 50% 8%; display: block; }
+.verschil__film { grid-column: 1 / span 4; grid-row: 2; margin: 40px 0 0; aspect-ratio: 4 / 5; overflow: hidden; background: rgba(243,238,231,.08); }
+.verschil__film video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.host__beeld { margin: 36px 0 0; aspect-ratio: 3 / 2; overflow: hidden; background: var(--linnen); }
+.host__beeld img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; display: block; }
+.klaarstaan__tweede img { object-position: 50% 45%; }
+@media (min-width: 1024px) { .verschil__tabel { grid-row: 1 / span 2; } }
+@media (max-width: 1023px) { .verschil__film { grid-column: 1 / span 5; grid-row: auto; margin: 32px 0 8px; } .host__beeld { margin: 28px 0 8px; } }
+@media (max-width: 699px) { .klaarstaan__beeld video { object-position: 50% 50%; } .verschil__film { grid-column: 1 / -1; max-width: 320px; } }

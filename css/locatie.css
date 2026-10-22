@@ -79,3 +79,7 @@
   .slotactie .actie { align-items: stretch; width: 100%; }
   .slotactie .knop { width: 100%; }
 }
+
+/* Video in het grote beeld van de sectie Fotostudio (22-10) */
+.ruimte__groot video { width: 100%; height: 100%; object-fit: cover; object-position: 24% 50%; display: block; }
+@media (max-width: 699px) { .ruimte__groot video { object-position: 50% 50%; } }

@@ -161,3 +161,7 @@
 /* Plattegrond met maten op Voor producers (statisch) */
 .prod-plan { margin: 32px 0 0; max-width: 980px; }
 .prod-plan .plan { width: 100%; height: auto; }
+
+/* Foto bij Stroom, licht en internet en video bij Je eigen team (22-10) */
+.team__beeld .beeld video { width: 100%; height: 100%; object-fit: cover; object-position: 50% 58%; display: block; }
+.stroom__beeld .beeld img { object-position: 50% 45%; }

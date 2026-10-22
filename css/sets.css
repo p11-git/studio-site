@@ -141,3 +141,6 @@
   .licht__item--smal { width: 100%; }
   .licht__regel { flex-wrap: wrap; gap: 4px 16px; }
 }
+
+/* Video in de setbeelden, het tweede terracotta-beeld, het lichtvak en de zuilengang (22-10) */
+.set__groot video, .set__extra .beeld video, .zuilen__groot video, .licht__beeld video { width: 100%; height: 100%; object-fit: cover; display: block; }
