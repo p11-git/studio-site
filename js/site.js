@@ -288,6 +288,38 @@
   })();
 
   /* ------------------------------------------------------------
+     Films in de secties (22-10): video[data-film] laadt pas als hij in beeld komt.
+     data-src-groot (vanaf 1400 px) / data-src-middel / data-src-mobiel (+ data-poster-mobiel, onder 700 px).
+     Bij "liever geen beweging" blijft alleen het stilstaande beeld staan.
+     ------------------------------------------------------------ */
+  var films = $$('video[data-film]');
+  if (films.length) (function () {
+    function bronVan(v) {
+      if (mqMobiel.matches && v.dataset.srcMobiel) return v.dataset.srcMobiel;
+      if (window.innerWidth < 1400 && v.dataset.srcMiddel) return v.dataset.srcMiddel;
+      return v.dataset.srcGroot;
+    }
+    function laadFilm(v) {
+      var b = bronVan(v);
+      if (!b) return;
+      if (v.getAttribute('src') !== b) {
+        if (mqMobiel.matches && v.dataset.posterMobiel) v.poster = v.dataset.posterMobiel;
+        v.setAttribute('src', b); v.load();
+      }
+      if (rust()) return;
+      var p = v.play(); if (p && p.catch) p.catch(function () {});
+    }
+    if ('IntersectionObserver' in window) {
+      var filmIO = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) laadFilm(e.target); else e.target.pause(); });
+      }, { rootMargin: '200px 0px' });
+      films.forEach(function (v) { filmIO.observe(v); });
+    } else films.forEach(laadFilm);
+    // Ander formaat (tablet draaien, venster verbreden): een spelende film wisselt naar het passende bestand, zoals de hero.
+    window.addEventListener('resize', wacht(function () { films.forEach(function (v) { if (!v.paused) laadFilm(v); }); }, 300));
+  })();
+
+  /* ------------------------------------------------------------
      Rustig binnenkomen van beelden en koppen
      ------------------------------------------------------------ */
   var reveals = $$('.reveal');

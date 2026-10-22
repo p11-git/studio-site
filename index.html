@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap">
 <link rel="preload" as="image" href="media/hero-muur-poster.jpg" media="(min-width: 700px)" fetchpriority="high">
-<link rel="preload" as="image" href="media/mobiel-poster.jpg" media="(max-width: 699px)" fetchpriority="high">
+<link rel="preload" as="image" href="media/hero-mobiel-sets-poster.jpg" media="(max-width: 699px)" fetchpriority="high">
 <link rel="stylesheet" href="css/site.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%239C5A44'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='17' fill='%23F3EEE7'%3Eds%3C/text%3E%3C/svg%3E">
 </head>
@@ -162,11 +162,11 @@
 <section class="hero" id="top" aria-labelledby="hero-kop">
   <div class="hero__lijst">
     <picture class="hero__poster">
-      <source media="(max-width: 699px)" srcset="media/mobiel-poster.jpg" width="1080" height="1920">
+      <source media="(max-width: 699px)" srcset="media/hero-mobiel-sets-poster.jpg" width="1080" height="1920">
       <img src="media/hero-muur-poster.jpg" alt="Achter het bakstenen muurtje vandaan de studio in: het overzicht van de crème set, langs de palm en door de boog naar de terracotta set." width="1920" height="1080" fetchpriority="high" decoding="async">
     </picture>
     <video class="hero__film" muted playsinline loop autoplay preload="metadata" aria-hidden="true" tabindex="-1" data-hero-film
-      data-src-groot="media/hero-muur-1080.mp4" data-src-middel="media/hero-muur-720.mp4" data-src-mobiel="media/mobiel-720x1280.mp4"></video>
+      data-src-groot="media/hero-muur-1080.mp4" data-src-middel="media/hero-muur-720.mp4" data-src-mobiel="media/hero-mobiel-sets-720x1280.mp4"></video>
     <button class="pauze" type="button" data-pauze aria-label="Pauzeer de film" hidden>
       <svg class="pauze__ico pauze__ico--pauze" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.4" height="10" rx=".6"/><rect x="9.6" y="3" width="2.4" height="10" rx=".6"/></svg>
       <svg class="pauze__ico pauze__ico--speel" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6c0 .4.4.6.7.4l7.3-4.8c.3-.2.3-.6 0-.8L5.7 2.8c-.3-.2-.7 0-.7.4z"/></svg>
@@ -189,10 +189,7 @@
 <section class="oplossing oplossing--kop" id="oplossing" aria-labelledby="oplossing-kop">
   <div class="halfbleed">
     <figure class="halfbleed__beeld reveal">
-      <picture>
-        <source media="(max-width: 699px)" srcset="media/boog-palm-03-4x5.jpg" width="1200" height="1500">
-        <img src="media/boog-palm-03-16x9.jpg" alt="Een model met zonnebril leunt lachend tegen de crème boog; links een palm, een witte amfoor en een reliëfpaneel." width="1920" height="1080" loading="lazy" decoding="async">
-      </picture>
+      <video muted playsinline loop preload="none" poster="media/binnenkomst-poster.jpg" aria-label="De sets, beeld voor beeld: het overzicht van de crème set, de boog, de terracotta set en de olijfgroene set, elk met een lichte zoom." data-film data-src-groot="media/binnenkomst-1620x1080.mp4" data-src-middel="media/binnenkomst-1080x720.mp4" data-src-mobiel="media/binnenkomst-4x5-720x900.mp4" data-poster-mobiel="media/binnenkomst-4x5-poster.jpg"></video>
     </figure>
     <div class="halfbleed__tekst">
       <h2 class="reveal" id="oplossing-kop">Je komt binnen in een studio die al draait.</h2>
@@ -401,8 +398,7 @@
       </div>
     </div>
     <figure class="zon__rechts reveal">
-      <img src="media/raamschaduw-still.jpg" alt="Een model in een bruin satijnen pak, met een hand in het haar, tegen een lichte wand met de schaduw van een raamkozijn." width="634" height="1080" loading="lazy" decoding="async">
-      <figcaption>Raamschaduw met de projector.</figcaption>
+      <video muted playsinline loop preload="none" poster="media/licht-schaduw-4x5-poster.jpg" aria-label="Licht en schaduw in de studio: de zon in de nis en op de amfoor, door de bogen." data-film data-src-groot="media/licht-schaduw-4x5-864x1080.mp4"></video>
     </figure>
   </div>
 </section>
@@ -425,7 +421,8 @@
         <li class="moment"><time class="moment__tijd" datetime="08:15">08:15</time><div class="moment__tekst"><p><strong>Eerste shot.</strong></p>
           <figure class="moment__beeld moment__beeld--klein reveal"><img src="media/boog-palm-01-4x5.jpg" alt="Een model leunt tegen de crème pilaar en kijkt omlaag; boven haar een palm en een amfoor op de richel." width="1200" height="1500" loading="lazy" decoding="async"></figure></div></li>
         <li class="moment" id="bouwvak"><time class="moment__tijd" datetime="12:30">12:30</time><div class="moment__tekst"><p><strong>Lunch.</strong> Onze host heeft je lunch opgehaald. Wil je liever op een ander tijdstip lunchen? Dat kan natuurlijk. Wil je extra decors of set-ups gebruiken? Die bouwen wij in deze tijd voor je op.</p>
-          <p class="bouwlabel">wij bouwen extra decors naar keuze</p></div></li>
+          <p class="bouwlabel">wij bouwen extra decors naar keuze</p>
+          <figure class="moment__beeld moment__beeld--klein reveal"><video muted playsinline loop preload="none" poster="media/ombouw-4x5-poster.jpg" aria-label="De ombouw: wij bouwen de extra decors op, jij schiet door." data-film data-src-groot="media/ombouw-4x5-720x900.mp4"></video></figure></div></li>
         <li class="moment moment--afbouw"><time class="moment__tijd" datetime="18:00">18:00</time><div class="moment__tekst"><p><strong>Laatste shot.</strong> Tot 20:00 heb je de tijd om af te bouwen en in te pakken, zonder overuren.</p>
           <p class="bouwlabel bouwlabel--afbouw">afbouwtijd <span>18:00–20:00</span></p></div></li>
       </ol>

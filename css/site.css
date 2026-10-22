@@ -871,3 +871,9 @@ html.menu-open, html.menu-open body { overflow: hidden; }
 .indeling .klaar { margin-top: 0; }
 @media (max-width: 1023px) { .oplossing--kop { padding-bottom: 112px; } .indeling { padding: 112px 0 144px; } }
 @media (max-width: 699px) { .oplossing--kop { padding-bottom: 96px; } .indeling { padding: 96px 0 120px; } }
+
+/* Films in de secties (22-10): dezelfde vakken als de foto's die ze vervangen */
+.halfbleed__beeld video { width: 100%; height: 100%; object-fit: cover; object-position: 24% 50%; display: block; }
+.moment__beeld video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.zon__rechts video { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 8%; display: block; }
+@media (max-width: 699px) { .halfbleed__beeld video { object-position: 50% 50%; } }
